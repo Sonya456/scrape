@@ -1,0 +1,39 @@
+<form method="get" action="{% url 'search_vacancies' %}">
+    <select name="industry">
+        <option value="">industry</option>
+        <option value="it">IT</option>
+    </select>
+    <select name="specialization">
+        <option value="">Select specialization</option>
+        <option value="software_development">Software Development</option>
+        <option value="data_science">Data Science</option>
+        <option value="it_support">IT Support</option>
+        <option value="networking">Networking</option>
+        <option value="cybersecurity">Cybersecurity</option>
+        <option value="system_administration">System Administration</option>
+        <option value="web_development">Web Development</option>
+        <option value="backend_development">Back-end Development</option>
+        <option value="frontend_development">Front-end Development</option>
+    </select>
+    <select name="site_name">
+        <option value="">site name</option>
+        <option value="pracuj.pl">pracuj.pl</option>
+        <option value="solid.jobs">solid.jobs</option>
+    </select>
+    <select name="level">
+        <option value="">level</option>
+        <option value="Unknown">Unknown</option>
+        <option value="Intern">Intern</option>
+        <option value="Junior">Junior</option>
+        <option value="Mid">Mid</option>
+        <option value="Senior">Senior</option>
+    </select>
+    <button type="submit">search</button>
+    {% for vacancy in vacancies %}
+    <div class="vacancy">
+        <h2>{{ vacancy.title }}</h2>
+        <a href="{{ vacancy.url }}" target="_blank">Подробнее</a>
+        <h3>{{vacancy.site_name}}</h3>
+    </div>
+    {% endfor %}
+</form>
