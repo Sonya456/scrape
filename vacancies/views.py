@@ -18,7 +18,6 @@ def search_vacancies(request):
     if level:
         if level in ['Staż', 'Intern']:
             vacancies = vacancies.filter(Q(level='Staż') | Q(level='Intern'))
-            print("1111111111111")
         else:
             vacancies = vacancies.filter(level=level)
     if site_name:
