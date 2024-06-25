@@ -79,21 +79,6 @@ class Command(BaseCommand):
                     city, level = self.get_vacancy_details(url)
                 if not url:
                     pass
-                    # k = 0
-                    # for vacancy_block in vacancies:
-                    #     title_element = vacancy
-                    #     vacancy_block = title_element.find_parent(class_='c1fljezf')
-
-
-                    #     if vacancy_block:
-                    #         pass
-                    #         #print(title)
-                    #         #print(vacancy_block)
-                    #         #extract_vacancy_data(vacancy_block, i, soup)
-                    #         #i = i + 1
-                    #     else:
-                    #         print("Блок вакансии не найден.")
-                    #     #extract_vacancy_data(vacancy_block)
                 if not Vacancy.objects.filter(title=title).exists() and k == 0:
                     try:
                         Vacancy.objects.create(title=title, url=url, level=level, city=city)
